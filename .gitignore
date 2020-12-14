@@ -12,6 +12,7 @@
 /dist
 /lib
 *.tgz
+/package
 
 # misc
 .DS_Store
