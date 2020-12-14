@@ -1,0 +1,66 @@
+.lightboxable-preview {
+    display: inline-block;
+}
+
+.lightboxable-modal {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.lightboxable-modal__background {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    opacity: 0.5;
+}
+
+.lightboxable-modal__image {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: auto;
+    height: auto;
+    max-height: 95%;
+    max-width: 95%;
+    transform: translate(-50%, -50%);
+}
+
+.lightboxable-modal__close {
+    display: block;
+    border: none;
+    background-color: transparent;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    width: 40px;
+    height: 40px;
+    z-index: 2;
+    cursor: pointer;
+    color: transparent;
+}
+
+.lightboxable-modal__close::after, .lightboxable-modal__close::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 100%;
+    height: 3px;
+    background-color: white;
+    z-index: 1;
+    transform-origin: center;
+}
+
+.lightboxable-modal__close::after {
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.lightboxable-modal__close::before {
+    transform: translate(-50%, -50%) rotate(-45deg);
+}

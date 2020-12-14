@@ -1,17 +1,15 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import RactDom from 'react-dom';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+import ReactLightboxable from './ReactLightboxable';
+
+const Preview = _ => <img src="https://source.unsplash.com/300x200" />;
+
+RactDom.render(
+    <ReactLightboxable
+        preview={<Preview />}
+        fullWidthUrl="https://source.unsplash.com/1200x800"
+    />,
+    document.getElementById('root')
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
