@@ -11,12 +11,6 @@
     "description": "Simple React.js component that displays an image on a fullscreen lightbox, toggled with a click event on the provided thumbail element.",
     "keywords": ["react", "lightbox", "react lightbox", "image modal", "image popoup"],
     "dependencies": {
-        "@testing-library/jest-dom": "^5.11.6",
-        "@testing-library/react": "^11.2.2",
-        "@testing-library/user-event": "^12.6.0",
-        "react": "^16.0.0",
-        "react-dom": "^16.0.0",
-        "react-scripts": "4.0.1"
     },
     "peerDependencies": {
         "react": "^16.0.0",
@@ -47,6 +41,12 @@
         ]
     },
     "devDependencies": {
-        "webpack-cli": "^4.2.0"
+        "webpack-cli": "^4.2.0",
+        "@testing-library/jest-dom": "^5.11.6",
+        "@testing-library/react": "^11.2.2",
+        "@testing-library/user-event": "^12.6.0",
+        "react": "^16.0.0",
+        "react-dom": "^16.0.0",
+        "react-scripts": "4.0.1"
     }
 }
