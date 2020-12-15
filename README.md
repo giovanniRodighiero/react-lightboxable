@@ -1,10 +1,10 @@
-# React Lightboxable
-Simple lightbox component for a single image
+# React Lightboxable - :bulb: :package:
+Simple React.js component that displays an image on a fullscreen lightbox, toggled with a click event on the provided thumbail element.
 
 ## Features
 * zero external dependencies :ok_hand:;
 * uses [React Portals](https://reactjs.org/docs/portals.html) for the lightbox container :cyclone:;
-* easily extendable and overwritable css classes :baby:;
+* easily extendable and overwritable css classes :art:.
 
 ## Installation
 ```shell
@@ -17,7 +17,7 @@ import React from 'react';
 
 import ReactLightboxable from './ReactLightboxable';
 
-// a thumbnail element
+// the thumbnail element
 const Preview = _ => <img src="https://source.unsplash.com/300x200" />;
 // or just <img src="https://source.unsplash.com/300x200" />
 
@@ -38,8 +38,9 @@ Super simple, just three props:
 | prop name | description |
 |---|---|
 | `preview` | The thumbail element, can be a React component or a DOM element |
-| `fullWidthUrl` | The url of the image to display in full screen inside the lighbox |
-| `fullWidthAlt` | The alt tag of the image to display in full screen inside the lighbox |
+| `fullWidthUrl` | The url of the image to display in full screen inside the lightbox |
+| `fullWidthAlt` | The alt tag of the image to display in full screen inside the lightbox |
+
 
 ## Css and classes overwrite
 | class name | description |
