@@ -1,12 +1,16 @@
 {
     "name": "react-lightboxable",
-    "version": "0.1.1",
+    "version": "1.0.0",
     "private": false,
     "main": "./lib/ReactLightboxable.js",
     "license": "MIT",
     "author": {
         "name": "Giovanni Rodighiero",
         "email": "giovanni.rodighiero@outlook.it"
+    },
+    "repository" :{
+        "type" : "git",
+        "url" : "https://github.com/giovanniRodighiero/react-lightboxable.git"
     },
     "description": "Simple React.js component that displays an image on a fullscreen lightbox, toggled with a click event on the provided thumbail element.",
     "keywords": [

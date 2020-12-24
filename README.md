@@ -1,6 +1,9 @@
 # React Lightboxable - :bulb: :package:
 Simple React.js component that displays an image on a fullscreen lightbox, toggled with a click event on the provided thumbail element.
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+![Tests](https://github.com/giovanniRodighiero/react-lightboxable/workflows/Test%20Pipeline/badge.svg)
+
 ## Features
 * zero external dependencies :ok_hand:;
 * uses [React Portals](https://reactjs.org/docs/portals.html) for the lightbox container :cyclone:;
