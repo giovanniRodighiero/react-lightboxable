@@ -30,7 +30,7 @@ function ReactLightboxable({
 }) {
     const [ open, setOpen ] = useState(false);
 
-    const onPortalOpen = _ => setOpen(true);
+    const onPortalOpen = _ => !!fullWidthUrl ? setOpen(true) : null;
     const onPortalClose = _ => setOpen(false);
 
     if (!preview)
@@ -41,14 +41,28 @@ function ReactLightboxable({
         {   
             !!fullWidthUrl && open &&
             <Portal>
-                <div className="lightboxable-modal">
-                    <button className="lightboxable-modal__close" onClick={onPortalClose} type="button">close</button>
+                <div
+                    className="lightboxable-modal"
+                    role="dialog"
+                >
+                    <button
+                        className="lightboxable-modal__close"
+                        onClick={onPortalClose}
+                        type="button"
+                        tabIndex={0}
+                        aria-label="close"
+                    >close</button>
                     <div className="lightboxable-modal__background" onClick={onPortalClose}></div>
                     <img className="lightboxable-modal__image" alt={fullWidthAlt} src={fullWidthUrl} />
                 </div>
             </Portal>
         }
-        <div className="lightboxable-preview" onClick={onPortalOpen}>{preview}</div>
+        <button
+            type="button"
+            aria-pressed={open}
+            className="lightboxable-preview"
+            onClick={onPortalOpen}
+        >{preview}</button>
         </React.Fragment>
     );
 };

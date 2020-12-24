@@ -1,5 +1,9 @@
 .lightboxable-preview {
+    border: none;
+    background: transparent;
     display: inline-block;
+    cursor: pointer;
+    outline: none;
 }
 
 .lightboxable-modal {

@@ -9,9 +9,14 @@
         "email": "giovanni.rodighiero@outlook.it"
     },
     "description": "Simple React.js component that displays an image on a fullscreen lightbox, toggled with a click event on the provided thumbail element.",
-    "keywords": ["react", "lightbox", "react lightbox", "image modal", "image popoup"],
-    "dependencies": {
-    },
+    "keywords": [
+        "react",
+        "lightbox",
+        "react lightbox",
+        "image modal",
+        "image popoup"
+    ],
+    "dependencies": {},
     "peerDependencies": {
         "react": "^16.0.0",
         "react-dom": "^16.0.0"
@@ -20,6 +25,7 @@
         "start": "react-scripts start",
         "build": "webpack --config ./production.config.js",
         "test": "react-scripts test",
+        "test-coverage": "react-scripts test --coverage",
         "eject": "react-scripts eject"
     },
     "eslintConfig": {
@@ -48,5 +54,8 @@
         "react": "^16.0.0",
         "react-dom": "^16.0.0",
         "react-scripts": "4.0.1"
+    },
+    "jest": {
+
     }
 }

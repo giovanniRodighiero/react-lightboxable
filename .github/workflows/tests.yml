@@ -1,9 +1,9 @@
-name: Publish to NPM
+name: Run tests
 
 on:
   push:
-    tags:
-      - 'v*'
+    branches:
+      - "master"
 
 jobs:
   publish:
@@ -17,8 +17,3 @@ jobs:
         run: npm install
       - name: Running tests
         run: npm run test
-      - name: Creating the build
-        run: npm run build
-      - uses: JS-DevTools/npm-publish@v1
-        with:
-          token: ${{ secrets.NPM_TOKEN }}
