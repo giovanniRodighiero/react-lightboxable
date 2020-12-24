@@ -2,7 +2,7 @@
 Simple React.js component that displays an image on a fullscreen lightbox, toggled with a click event on the provided thumbail element.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-![Tests](https://github.com/giovanniRodighiero/react-lightboxable/workflows/Test%20Pipeline/badge.svg)
+![Tests](https://github.com/giovanniRodighiero/react-lightboxable/workflows/Testing%20code/badge.svg)
 
 ## Features
 * zero external dependencies :ok_hand:;
