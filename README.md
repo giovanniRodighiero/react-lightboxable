@@ -18,7 +18,7 @@ $ npm install --save-dev react-lightboxable
 ```javascript
 import React from 'react';
 
-import ReactLightboxable from './ReactLightboxable';
+import ReactLightboxable from 'react-lightboxable';
 
 // the thumbnail element
 const Preview = _ => <img src="https://source.unsplash.com/300x200" />;
@@ -30,6 +30,7 @@ function Example () {
         <ReactLightboxable
             preview={<Preview />}
             fullWidthUrl="https://source.unsplash.com/1200x800"
+            fullWidthAlt="lightbox image alt tag"
         />
     );
 }

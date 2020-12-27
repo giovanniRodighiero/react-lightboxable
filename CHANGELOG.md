@@ -9,3 +9,6 @@ Minor improvements on package.json and build pipelines
 
 # v1.0.0
 First major release, adds tests and better accessibility
+
+# v1.0.1
+Update the example in README.md

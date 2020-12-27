@@ -9,6 +9,7 @@ RactDom.render(
     <ReactLightboxable
         preview={<Preview />}
         fullWidthUrl="https://source.unsplash.com/1200x800"
+        fullWidthAlt="lightbox image alt tag"
     />,
     document.getElementById('root')
 );
