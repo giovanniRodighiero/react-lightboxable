@@ -1,5 +1,6 @@
 import React from 'react';
-import { render, screen, fireEvent } from '@testing-library/react';
+import '@testing-library/jest-dom';
+import { render, screen, fireEvent, getByRole } from '@testing-library/react';
 
 import ReactLightboxable from './ReactLightboxable';
 
@@ -19,7 +20,7 @@ it('should render the provided preview component', () => {
         />
     );
     const preview = screen.getByRole('button');
-    expect(preview.getAttribute('aria-pressed')).toBe('false');
+    expect(preview).toHaveAttribute('aria-pressed', 'false');
 });
 
 it('should not open the modal in case of missing link, as well as changing the aria-pressed', () => {
@@ -29,14 +30,15 @@ it('should not open the modal in case of missing link, as well as changing the a
         />
     );
     const preview = screen.getByRole('button');
-    expect(preview.getAttribute('aria-pressed')).toBe('false');
+    expect(preview).toHaveAttribute('aria-pressed', 'false');
     
+    // click on preview
     fireEvent.click(preview);
-    expect(preview.getAttribute('aria-pressed')).toBe('false');
+    expect(preview).toHaveAttribute('aria-pressed', 'false');
     expect(screen.queryByRole('dialog')).toBeNull();
 });
 
-it('should open the modal, as well as changing the aria-pressed', () => {
+it('should open the modal, as well as changing the aria-pressed on click event', () => {
     render(
         <ReactLightboxable
             preview={<img src={PREVIEW_URL} alt="testing-preview" />}
@@ -45,15 +47,64 @@ it('should open the modal, as well as changing the aria-pressed', () => {
         />
     );
     const preview = screen.getByRole('button');
-    expect(preview.getAttribute('aria-pressed')).toBe('false');
+    expect(preview).toHaveAttribute('aria-pressed', 'false');
     
+    // click on preview
     fireEvent.click(preview);
     const lightbox = screen.queryByRole('dialog');
-    expect(preview.getAttribute('aria-pressed')).toBe('true');
     expect(lightbox).not.toBeNull();
+    expect(preview).toHaveAttribute('aria-pressed', 'true');
 
     const fullWidthImage = lightbox.querySelector('img');
     expect(fullWidthImage).not.toBeNull();
-    expect(fullWidthImage.getAttribute('src')).toBe(FULL_WIDTH_URL);
-    expect(fullWidthImage.getAttribute('alt')).toBe(FULL_WIDTH_ALT_TEXT);
+    expect(fullWidthImage).toHaveAttribute('src', FULL_WIDTH_URL);
+    expect(fullWidthImage).toHaveAttribute('alt', FULL_WIDTH_ALT_TEXT);
+});
+
+it('should close the modal, as well as changing the aria-pressed when the close button is clicked', () => {
+    render(
+        <ReactLightboxable
+            preview={<img src={PREVIEW_URL} alt="testing-preview" />}
+            fullWidthUrl={FULL_WIDTH_URL}
+            fullWidthAlt={FULL_WIDTH_ALT_TEXT}
+        />
+    );
+    const preview = screen.getByRole('button');
+    expect(preview).toHaveAttribute('aria-pressed', 'false');
+
+    // click on preview
+    fireEvent.click(preview);
+    expect(preview).toHaveAttribute('aria-pressed', 'true');
+
+    const lightbox = screen.getByRole('dialog');
+    const closeButton = getByRole(lightbox, 'button');
+
+    // click on close button
+    fireEvent.click(closeButton);
+    expect(screen.queryByRole('dialog')).toBeNull();
+    expect(preview).toHaveAttribute('aria-pressed', 'false');
+});
+
+it('should close the modal, as well as changing the aria-pressed when the background is clicked', () => {
+    render(
+        <ReactLightboxable
+            preview={<img src={PREVIEW_URL} alt="testing-preview" />}
+            fullWidthUrl={FULL_WIDTH_URL}
+            fullWidthAlt={FULL_WIDTH_ALT_TEXT}
+        />
+    );
+    const preview = screen.getByRole('button');
+    expect(preview).toHaveAttribute('aria-pressed', 'false');
+
+    // click on preview
+    fireEvent.click(preview);
+    expect(preview).toHaveAttribute('aria-pressed', 'true');
+
+    const lightbox = screen.getByRole('dialog');
+    const background = lightbox.querySelector('.lightboxable-modal__background');
+
+    // click on background button
+    fireEvent.click(background);
+    expect(screen.queryByRole('dialog')).toBeNull();
+    expect(preview).toHaveAttribute('aria-pressed', 'false');
 });

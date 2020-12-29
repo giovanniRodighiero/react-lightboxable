@@ -33,6 +33,16 @@ function ReactLightboxable({
     const onPortalOpen = _ => !!fullWidthUrl ? setOpen(true) : null;
     const onPortalClose = _ => setOpen(false);
 
+    const onKeyDown = ({ key }) => console.log(key) && key === 'Escape' ? setOpen(false) : null;
+
+    useEffect(_ => {
+        window.addEventListener('keydown', onKeyDown);
+
+        return function lightboxableCleanup () {
+            window.removeEventListener('keydown', onKeyDown)
+        };
+    });
+
     if (!preview)
         return null;
     
