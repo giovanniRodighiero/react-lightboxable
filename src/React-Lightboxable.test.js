@@ -108,3 +108,26 @@ it('should close the modal, as well as changing the aria-pressed when the backgr
     expect(screen.queryByRole('dialog')).toBeNull();
     expect(preview).toHaveAttribute('aria-pressed', 'false');
 });
+
+it('should close the modal, as well as changing the aria-pressed when the escape key is pressed', () => {
+    render(
+        <ReactLightboxable
+            preview={<img src={PREVIEW_URL} alt="testing-preview" />}
+            fullWidthUrl={FULL_WIDTH_URL}
+            fullWidthAlt={FULL_WIDTH_ALT_TEXT}
+        />
+    );
+    const preview = screen.getByRole('button');
+    expect(preview).toHaveAttribute('aria-pressed', 'false');
+
+    // click on preview
+    fireEvent.click(preview);
+    expect(preview).toHaveAttribute('aria-pressed', 'true');
+
+    const lightbox = screen.getByRole('dialog');
+
+    // escape key pressed
+    fireEvent.keyDown(lightbox, { key: 'Escape', code: 'Escape' });
+    expect(screen.queryByRole('dialog')).toBeNull();
+    expect(preview).toHaveAttribute('aria-pressed', 'false');
+});

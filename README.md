@@ -7,7 +7,8 @@ Simple React.js component that displays an image on a fullscreen lightbox, toggl
 ## Features
 * zero external dependencies :ok_hand:;
 * uses [React Portals](https://reactjs.org/docs/portals.html) for the lightbox container :cyclone:;
-* easily extendable and overwritable css classes :art:.
+* easily extendable and overwritable css classes :art:;
+* handles the `Escape` key as a medium to close the lightbox.
 
 ## Installation
 ```shell

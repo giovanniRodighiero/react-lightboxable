@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import ReactDom from 'react-dom';
 
 import './ReactLightboxable.css';
@@ -30,18 +30,31 @@ function ReactLightboxable({
 }) {
     const [ open, setOpen ] = useState(false);
 
-    const onPortalOpen = _ => !!fullWidthUrl ? setOpen(true) : null;
-    const onPortalClose = _ => setOpen(false);
+    const onKeyDown = useCallback(({ key }) => {
+        if (key !== 'Escape')
+            return;
 
-    const onKeyDown = ({ key }) => console.log(key) && key === 'Escape' ? setOpen(false) : null;
+        window.removeEventListener('keydown', onKeyDown, false);
+        setOpen(false);
+    }, [ setOpen ]);
+
+    const onPortalOpen = _ => {
+        if (!fullWidthUrl)
+            return;
+
+        window.addEventListener('keydown', onKeyDown, false);
+        setOpen(true);
+    };
+    const onPortalClose = _ => {
+        window.removeEventListener('keydown', onKeyDown, false);
+        setOpen(false);
+    };
 
     useEffect(_ => {
-        window.addEventListener('keydown', onKeyDown);
-
         return function lightboxableCleanup () {
-            window.removeEventListener('keydown', onKeyDown)
+            window.removeEventListener('keydown', onKeyDown, false);
         };
-    });
+    }, [ onKeyDown ]);
 
     if (!preview)
         return null;
