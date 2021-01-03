@@ -15,7 +15,10 @@ Simple React.js component that displays an image on a fullscreen lightbox, toggl
 $ npm install --save-dev react-lightboxable
 ```
 
-## Example
+## Demo
+A live demo is available on [Codesandbox.io](https://codesandbox.io/s/react-lightboxable-demo-72rux)
+
+## Usage
 ```javascript
 import React from 'react';
 
@@ -38,18 +41,19 @@ function Example () {
 ```
 
 ## Props and usage
-Super simple, just three props:
+Super simple, just three props
 
 | prop name | description |
-|---|---|
+| :--- | :--- |
 | `preview` | The thumbail element, can be a React component or a DOM element |
 | `fullWidthUrl` | The url of the image to display in full screen inside the lightbox |
 | `fullWidthAlt` | The alt tag of the image to display in full screen inside the lightbox |
 
-
 ## Css and classes overwrite
+The css classes used in the default styling
+
 | class name | description |
-|---|---|
+| --- | --- |
 | `.lightboxable-modal` | wrapper element for the lightbox component |
 | `.lightboxable-modal__close` | close button on top right corner |
 | `.lightboxable-modal__background` | dark background with click-away listener |

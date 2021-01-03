@@ -11,8 +11,11 @@ Minor improvements on package.json and build pipelines
 First major release, adds tests and better accessibility
 
 # v1.0.1
-Update the example in README.md
+Updated the example in README.md
 
 # v1.1.0
 * Added more tests about the closing logic of the lightbox;
 * Added the escape key as a valid option to close the lightbox.
+
+# v1.1.1
+Added a link to live demo in codesandbox.io

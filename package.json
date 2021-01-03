@@ -1,6 +1,6 @@
 {
     "name": "react-lightboxable",
-    "version": "1.1.0",
+    "version": "1.1.1",
     "private": false,
     "main": "./lib/ReactLightboxable.js",
     "license": "MIT",
